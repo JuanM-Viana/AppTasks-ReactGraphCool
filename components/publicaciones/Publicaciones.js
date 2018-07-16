@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, ActivityIndicator } from 'react-native';
+import { List, ListItem, Body, Right, Icon } from 'native-base';
 import {graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -8,26 +9,34 @@ import gql from 'graphql-tag';
     render() {
         //console.log(this.props.data);
         const {loading, allPublicacions, navigation } = this.props;
-        if(loading) return null;
+        if(loading) return <ActivityIndicator size="large"/>;
         return (   
             <View>
-                <FlatList
-                    data = {allPublicacions}
-                    renderItem = {({ item }) => (
-                    <Text onPress={()=> navigation.navigate("Publicacion", {
-                        id: item.id
-                    })}>
-                         {item.titulo}
-                    </Text>)}
-                    keyExtractor = {item => item.id}
-                />
+                <List>
+                    <FlatList
+                        data = {allPublicacions}
+                        renderItem = {({ item }) => (
+                        <ListItem onPress={()=> navigation.navigate("Publicacion", {
+                            id: item.id,
+                            titulo : item.titulo
+                        })}>
+                            <Body>
+                                <Text>{item.titulo}</Text>
+                            </Body>
+                            <Right>
+                                <Icon name="arrow-forward" />
+                            </Right>
+                        </ListItem>)}
+                        keyExtractor = {item => item.id}
+                    />
+                </List>
             </View>
         );
     }
 }
 
 const publicacionesQuery =gql `
-    {
+    query publicacionesQuery {
         allPublicacions {
             id
             titulo

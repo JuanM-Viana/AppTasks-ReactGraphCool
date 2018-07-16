@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ActivityIndicator } from 'react-native';
 import {graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -7,19 +7,20 @@ import menuEstilos from '../../estilos/menu';
 
 
 class Publicacion extends Component {
-    static navigationOptions = {
-        title: "Publicación",
-        ...menuEstilos        
-    }; 
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.state.params.titulo,
+            ...menuEstilos        
+        }; 
+    };
 
     render() {
         //console.log(this.props);
         const {Publicacion, loading } = this.props;
-        if(loading) return null;
+        if(loading) return <ActivityIndicator size="large"/>;
         return (   
             <View>
-                <Text>{this.props.Publicacion.id}</Text>
-                <Text>{this.props.Publicacion.titulo}</Text>
+                <Text>{this.props.Publicacion.descripcion}</Text>
             </View>
         );
     }
@@ -29,6 +30,7 @@ const publicacionQuery = gql `
         Publicacion(id: $id){
             id
             titulo
+            descripcion
         }
     }
 `;
