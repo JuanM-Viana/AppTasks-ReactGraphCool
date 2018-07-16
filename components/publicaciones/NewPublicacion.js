@@ -4,7 +4,15 @@ import PublicacionForm from './PublicacionForm';
 import {graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+
+import menuEstilos from '../../estilos/menu';
+
 class NewPublicacion extends Component {
+
+    static navigationOptions = {
+        title: "Nueva Publicacion",
+        ...menuEstilos      
+    };
 
     state = {
         loading: false

@@ -4,5 +4,10 @@ export default{
     },
     headerTitleStyle: {
           color: "#FFF"
-    }
+    },
+    headerBackTitleStyle: {
+        
+    },
+
+    headerTintColor: "#FFF" 
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet,  View, Text, TouchableHighlight } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import {Fab, Icon} from 'native-base';
 
 import Publicacion from './components/publicaciones/Publicacion';
 import Publicaciones from './components/publicaciones/Publicaciones';
@@ -25,9 +26,9 @@ class Inicio extends React.Component {
       return (      
           <View style={styles.container}>
             <Publicaciones {...this.props}/>
-            <TouchableHighlight onPress={this.newPublicacion} style={styles.estNuevaPublicacion}>
-                <Text style={styles.nuevaPublicacionText}>Nuevo Registro +</Text>
-            </TouchableHighlight>
+            <Fab onPress={this.newPublicacion} style={styles.estNuevaPublicacion} >
+              <Icon name="add" />
+            </Fab>
           </View>
       );
     }

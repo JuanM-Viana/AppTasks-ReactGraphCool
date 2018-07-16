@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Button } from 'react-native';
+import { Form, Item, Input, Label } from 'native-base';
 
 
 
@@ -18,33 +19,36 @@ export default class PublicacionForm extends Component {
 
     render() {
         return(
-            <View>
-                <TextInput 
-                    style={styles.titulo}
-                    onChangeText={titulo => this.setState({ titulo })}
-                    value={this.state.titulo}
-                />
-                <TextInput 
-                    style={styles.descripcion}
-                    onChangeText={descripcion => this.setState({ descripcion })}
-                    value={this.state.descripcion}
-                />
+            <Form>
+                <Item floatingLabel>
+                    <Label>
+                        Titulo
+                    </Label>
+                    <Input 
+                        onChangeText={titulo => this.setState({ titulo })}
+                        value={this.state.titulo}
+                    />                
+                </Item>
+                <Item floatingLabel>
+                    <Label>
+                        Descripcion
+                    </Label>
+                    <Input 
+                        multiline
+                        style={styles.descripcion}
+                        onChangeText={descripcion => this.setState({ descripcion })}
+                        value={this.state.descripcion}
+                    />                
+                </Item>
                 <Button title="Guardar" onPress={this.submitPublicacion}/>
-            </View>
+            </Form>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    titulo: {
-        height: 40,
-        borderColor: "#333",
-        borderWidth: 1  
-    },
     descripcion: {
         height: 200,
-        borderColor: "#333",
-        borderWidth: 1,
         textAlignVertical: "top"
     }
   });
