@@ -25,7 +25,7 @@ class Inicio extends React.Component {
       return (      
           <View style={styles.container}>
             <Publicaciones {...this.props}/>
-            <TouchableHighlight onPress={this.newPublicacion} style={styles.estNuevaPublicacion}>
+            <TouchableHighlight onPress={this.newPublicacionr} style={styles.estNuevaPublicacion}>
                 <Text style={styles.nuevaPublicacionText}>Nuevo Registro +</Text>
             </TouchableHighlight>
           </View>
@@ -43,7 +43,7 @@ export default StackNavigator ({
       screen: Publicacion
     },
 
-    NuevaPublicacion: {
+    nuevaPublicacion: {
       screen: nuevaPublicacion
     }
   

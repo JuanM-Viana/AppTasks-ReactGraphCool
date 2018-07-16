@@ -14,7 +14,7 @@ class Publicacion extends Component {
 
     render() {
         //console.log(this.props);
-        const {Publicacion,loading } = this.props;
+        const {Publicacion, loading } = this.props;
         if(loading) return null;
         return (   
             <View>
