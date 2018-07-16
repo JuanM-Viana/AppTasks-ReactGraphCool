@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import {graphql } from 'react-apollo';
 import gql from 'graphql-tag';

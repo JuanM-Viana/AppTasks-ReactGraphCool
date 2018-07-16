@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Publicacion from './components/publicaciones/Publicacion';
 import Publicaciones from './components/publicaciones/Publicaciones';
-import nuevaPublicacion from './components/publicaciones/nuevaPublicacion';
+import NewPublicacion from './components/publicaciones/NewPublicacion';
 import menuEstilos from './estilos/menu';
 
 class Inicio extends React.Component {
@@ -18,14 +18,14 @@ class Inicio extends React.Component {
     };
 
     newPublicacion = () => {
-        this.props.navigation.navigate('nuevaPublicacion');
+        this.props.navigation.navigate('NewPublicacion');
     };
   
     render() {
       return (      
           <View style={styles.container}>
             <Publicaciones {...this.props}/>
-            <TouchableHighlight onPress={this.newPublicacionr} style={styles.estNuevaPublicacion}>
+            <TouchableHighlight onPress={this.newPublicacion} style={styles.estNuevaPublicacion}>
                 <Text style={styles.nuevaPublicacionText}>Nuevo Registro +</Text>
             </TouchableHighlight>
           </View>
@@ -43,8 +43,8 @@ export default StackNavigator ({
       screen: Publicacion
     },
 
-    nuevaPublicacion: {
-      screen: nuevaPublicacion
+    NewPublicacion: {
+      screen: NewPublicacion
     }
   
   });
