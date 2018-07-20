@@ -37,7 +37,7 @@ import gql from 'graphql-tag';
 
 const publicacionesQuery =gql `
     query publicacionesQuery {
-        allPublicacions(orderBy: fechaCreacion_DESC) {
+        allPublicacions(orderBy: createdAt_DESC) {
             id
             titulo
         }
